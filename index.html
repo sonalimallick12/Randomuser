@@ -3,22 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Random User Generator</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="header">
         <h1>RANDOM USER GENERATOR</h1>
+        <p>A free, <a href="#">open-source</a> API for generating random user data. Like Lorem Ipsum, but for people.</p>
+        <p><a href="#">Follow us @randomapi</a></p>
+    </div>
+    <div class="container">
         <div class="profile">
             <img id="profile-picture" src="" alt="Profile Picture">
-            <h2 id="name">Name</h2>
-            <ul>
-                <li id="email">Email</li>
-                <li id="dob">Date of Birth</li>
-                <li id="location">Location</li>
-                <li id="phone">Phone</li>
-            </ul>
         </div>
+        <div class="icons">
+            <div class="icon" id="icon1">
+                <img src="image/usericon.png" alt="Icon 1">
+                <span class="hover" id="hover1">Name</span>
+            </div>
+            <div class="icon" id="icon2">
+                <img src="/image/mailicon.png" alt="Icon 2">
+                <span class="hover" id="hover2">Email</span>
+            </div>
+            <div class="icon" id="icon3">
+                <img src="/image/calendericon.png" alt="Icon 3">
+                <span class="hover" id="hover3">Date of Birth</span>
+            </div>
+            <div class="icon" id="icon4">
+                <img src="/image/mapicon.png" alt="Icon 4">
+                <span class="hover" id="hover4">Location</span>
+            </div>
+            <div class="icon" id="icon5">
+                <img src="/image/callicon.png" alt="Icon 5">
+                <span class="hover" id="hover5">Phone</span>
+            </div>
+            <div class="icon" id="icon6">
+                <img src="/image/lockicon.png" alt="Icon 6">
+                <span class="hover" id="hover6">Password</span>
+            </div>
+        </div>
+    </div>
+    <div class="sponsored">
+        <p>SPONSORED</p>
+        <h2>Sonali Mallick</h2>
+        <p>By using the Fetch API and event listeners, this script dynamically updates the displayed user information when icons are hovered over,
+             creating an interactive and responsive user interface.</p>
+
+        <button>Learn More</button>
     </div>
     <script src="script.js"></script>
 </body>
