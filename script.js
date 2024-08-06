@@ -1,61 +1,135 @@
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('https://randomuser.me/api/')
-        .then(response => response.json())
-        .then(data => {
-            const user = data.results[0];
-            const randomName = `${user.name.first} ${user.name.last}`;
-            
-            document.getElementById('profile-picture').src = user.picture.large;
-            document.getElementById('hover1').innerText = randomName;
-            document.getElementById('hover2').innerText = user.email;
-            document.getElementById('hover3').innerText = new Date(user.dob.date).toLocaleDateString();
-            document.getElementById('hover4').innerText = `${user.location.city}, ${user.location.country}`;
-            document.getElementById('hover5').innerText = user.phone;
-            document.getElementById('hover6').innerText = user.login.password;
+/*var randomname, randomlocation, randomemail, randomdob, randompassword, randomphone;
+var img = document.getElementById("profile-picture");
+var header = document.querySelector(".header");
+var nameElement = document.createElement("h2");  // Create a new element for displaying the name or other info
+var descElement = document.createElement("p");  // Create a new element for displaying the description
+header.appendChild(nameElement);  // Append the new elements to the header
+header.appendChild(descElement);
+var iconElement = document.querySelectorAll(".icon img");
+var hoverElements = document.querySelectorAll(".hover");
 
-            // Adding mouseover events
-            addMouseoverEvents(randomName, user);
+// Generate user data on page load
+document.addEventListener("DOMContentLoaded", generateUser);
+
+function generateUser() {
+    fetch("https://randomuser.me/api/")
+        .then((response) => response.json())
+        .then((data) => {
+            const user = data.results[0];
+            img.src = user.picture.large;
+            randomname = `${user.name.first} ${user.name.last}`;
+            randomemail = user.email;
+            randomdob = new Date(user.dob.date).toLocaleDateString();
+            randomlocation = `${user.location.street.number} ${user.location.street.name}`;
+            randomphone = user.phone;
+            randompassword = user.login.password;
+
+            // Set default information
+            updateInformation("Hi, My name is", randomname, 0);
         })
-        .catch(error => console.error('Error fetching user data:', error));
+        .catch((error) => console.error("Error fetching user:", error));
+}
+
+iconElement.forEach((icon, index) => {
+    icon.addEventListener('mouseover', () => {
+        switch (index) {
+            case 0:
+                updateInformation("Hi, My name is", randomname, index);
+                break;
+            case 1:
+                updateInformation("My email address is", randomemail, index);
+                break;
+            case 2:
+                updateInformation("My birthday is", randomdob, index);
+                break;
+            case 3:
+                updateInformation("My address is", randomlocation, index);
+                break;
+            case 4:
+                updateInformation("My phone number is", randomphone, index);
+                break;
+            case 5:
+                updateInformation("My password is", randompassword, index);
+                break;
+        }
+    });
 });
 
-function addMouseoverEvents(randomName, user) {
-    const nameElement = document.getElementById('name-element');
-    const descElement = document.getElementById('desc-element');
-    const iconElements = document.querySelectorAll('.icon');
-    const hoverTextElements = document.querySelectorAll('.hover-text');
-
-    iconElements[0].addEventListener('mouseover', function() {
-        displayHoverText(hoverTextElements[0], `Hi, My name is ${randomName}`);
+function updateInformation(label, value, activeIndex) {
+    nameElement.innerText = label;
+    descElement.innerText = value;
+    hoverElements.forEach((hover, index) => {
+        hover.style.color = index === activeIndex ? "green" : "rgba(128, 128, 128, 0.503)";
     });
-
-    iconElements[1].addEventListener('mouseover', function() {
-        displayHoverText(hoverTextElements[1], `Hi, My email is ${user.email}`);
+    iconElement.forEach((icon, index) => {
+        icon.style.color = index === activeIndex ? "green" : "rgba(128, 128, 128, 0.503)";
     });
+}*/
+var randomname, randomlocation, randomemail, randomdob, randompassword, randomphone;
+var img = document.getElementById("profile-picture");
+var infoContainer = document.querySelector(".info");  // Changed to select the info container
+var nameElement = document.createElement("h2");  // Create a new element for displaying the name or other info
+var descElement = document.createElement("p");  // Create a new element for displaying the description
+infoContainer.appendChild(nameElement);  // Append the new elements to the info container
+infoContainer.appendChild(descElement);
+var iconElement = document.querySelectorAll(".icon img");
+var hoverElements = document.querySelectorAll(".hover");
 
-    iconElements[2].addEventListener('mouseover', function() {
-        displayHoverText(hoverTextElements[2], `Hi, My date of birth is ${new Date(user.dob.date).toLocaleDateString()}`);
+// Generate user data on page load
+document.addEventListener("DOMContentLoaded", generateUser);
+
+function generateUser() {
+    fetch("https://randomuser.me/api/")
+        .then((response) => response.json())
+        .then((data) => {
+            const user = data.results[0];
+            img.src = user.picture.large;
+            randomname = `${user.name.first} ${user.name.last}`;
+            randomemail = user.email;
+            randomdob = new Date(user.dob.date).toLocaleDateString();
+            randomlocation = `${user.location.street.number} ${user.location.street.name}`;
+            randomphone = user.phone;
+            randompassword = user.login.password;
+
+            // Set default information
+            updateInformation("Hi, My name is", randomname, 0);
+        })
+        .catch((error) => console.error("Error fetching user:", error));
+}
+
+iconElement.forEach((icon, index) => {
+    icon.addEventListener('mouseover', () => {
+        switch (index) {
+            case 0:
+                updateInformation("Hi, My name is", randomname, index);
+                break;
+            case 1:
+                updateInformation("My email address is", randomemail, index);
+                break;
+            case 2:
+                updateInformation("My birthday is", randomdob, index);
+                break;
+            case 3:
+                updateInformation("My address is", randomlocation, index);
+                break;
+            case 4:
+                updateInformation("My phone number is", randomphone, index);
+                break;
+            case 5:
+                updateInformation("My password is", randompassword, index);
+                break;
+        }
     });
+});
 
-    iconElements[3].addEventListener('mouseover', function() {
-        displayHoverText(hoverTextElements[3], `Hi, My location is ${user.location.city}, ${user.location.country}`);
+function updateInformation(label, value, activeIndex) {
+    nameElement.innerText = label;
+    descElement.innerText = value;
+    hoverElements.forEach((hover, index) => {
+        hover.style.color = index === activeIndex ? "green" : "rgba(128, 128, 128, 0.503)";
     });
-
-    iconElements[4].addEventListener('mouseover', function() {
-        displayHoverText(hoverTextElements[4], `Hi, My phone number is ${user.phone}`);
-    });
-
-    iconElements[5].addEventListener('mouseover', function() {
-        displayHoverText(hoverTextElements[5], `Hi, My password is ${user.login.password}`);
-    });
-
-    iconElements.forEach((icon, index) => {
-        icon.addEventListener('mouseout', function() {
-            hoverTextElements[index].innerText = '';
-        });
+    iconElement.forEach((icon, index) => {
+        icon.style.color = index === activeIndex ? "green" : "rgba(128, 128, 128, 0.503)";
     });
 }
 
-function displayHoverText(element, text) {
-    element.innerText = text;
-}

@@ -1,4 +1,4 @@
-body {
+/*body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -25,6 +25,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+
 }
 
 .profile img {
@@ -43,6 +44,8 @@ body {
 .icon {
     position: relative;
     cursor: pointer;
+    margin: 10px;
+    text-align: center;
 }
 
 .icon img {
@@ -62,9 +65,11 @@ body {
     border-radius: 5px;
     font-size: 12px;
     white-space: nowrap;
+    
 }
 
 .icon:hover .hover {
+
     display: block;
 }
 
@@ -89,4 +94,112 @@ h2{
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
 
+}*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    border-bottom: 1px solid #ddd
+    
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #f4f4f4;
+}
+
+.header p {
+    margin: 10px 0;
+    color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 50px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile img {
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+}
+
+.info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.info h2, .info p {
+    margin: 5px 0;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+.icon img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.icon .hover {
+    color: rgba(128, 128, 128, 0.503);
+    font-size: 12px;
+    text-align: center;
+}
+
+.sponsored {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+}
+
+.sponsored h2 {
+    margin-top: 0;
+}
+
+.sponsored button {
+    background-color: rgb(26, 184, 252);
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.sponsored button a {
+    text-decoration: none;
+    color: white;
+}
+
+.icon img, .icon .hover {
+    transition: color 0.4s ease;
+}
+
